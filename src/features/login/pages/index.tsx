@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import LoginContainer from "../components/organisms/LoginContainer";
+import {RouteComponentProps} from "react-router-dom";
 
 type InputTypes = 'email' | 'password';
 
@@ -14,8 +15,8 @@ type State = {
     checkedPolicy: boolean;
 };
 
-class Login extends Component<Props, State> {
-    constructor(props:Props) {
+class Login extends Component<Props & RouteComponentProps, State> {
+    constructor(props:Props & RouteComponentProps) {
         super(props);
         this.state = {
             email: '',
@@ -39,6 +40,8 @@ class Login extends Component<Props, State> {
       })
     };
 
+
+
     handleLogIn = () => {
         // call of the login api here ---
     };
@@ -48,6 +51,9 @@ class Login extends Component<Props, State> {
         const {email, password,checkedPolicy} = this.state;
         return (
             <LoginContainer
+                history={this.props.history}
+                location={this.props.location}
+                match={this.props.match}
                 email={email}
                 password={password}
                 handleInputChange={this.handleInputChange}

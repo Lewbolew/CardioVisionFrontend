@@ -3,6 +3,7 @@ import * as React from 'react';
 import styled from '@emotion/styled';
 import logo from '../../../../ui/images/logo-short.svg'
 import LoginForm from "../molecules/LoginForm";
+import { RouteComponentProps } from "react-router-dom";
 
 type Props = {
     email: string;
@@ -13,11 +14,11 @@ type Props = {
     handleInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-function LoginContainer(props: Props) {
+function LoginContainer(props: Props & RouteComponentProps) {
     const {email, password, checkedPolicy, handleInputChange,togglePolicy,handleLogIn} = props;
     return (
         <StyledContainer>
-            <StyledImg src={logo} alt="logo" />
+            <StyledImg src={logo} alt="logo" onClick={() => {props.history.push("/")}} />
             <LoginForm
                 email={email}
                 password={password}
@@ -40,6 +41,7 @@ const StyledContainer = styled.div`
 `;
 
 const StyledImg = styled.img`
+    cursor: pointer;
     width: 60px;
 `;
 

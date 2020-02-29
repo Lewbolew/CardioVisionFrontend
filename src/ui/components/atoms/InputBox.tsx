@@ -6,6 +6,7 @@ type ExpandedOnChangeProps = {
     value?: string;
     name?: string;
     readOnly?: boolean;
+    type?: string;
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => any;
 };
 
@@ -19,6 +20,7 @@ class InputBox extends React.Component<ExpandedOnChangeProps> {
                 onClick={(event) => {
                     event.preventDefault();
                 }}
+                type={this.props.type}
                 name={this.props.name}
                 readOnly={this.props.readOnly}
             />

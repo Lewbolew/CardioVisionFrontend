@@ -2,33 +2,35 @@ import * as React from 'react';
 // @ts-ignore
 import styled from '@emotion/styled';
 import logo from '../../../../ui/images/logo-short.svg'
-import LoginForm from "../molecules/LoginForm";
 import { RouteComponentProps } from "react-router-dom";
-import {LoginErrors} from "../../pages";
+import RegisterForm from "../molecules/RegisterForm";
+import {RegisterErrors} from "../../pages";
 
 type Props = {
     email: string;
     password: string;
-    errors?: LoginErrors;
     checkedPolicy: boolean;
+    confirm: string;
+    errors?: RegisterErrors;
     togglePolicy: () => void;
-    handleLogIn: () => void;
+    handleRegister: () => void;
     handleInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-function LoginContainer(props: Props & RouteComponentProps) {
-    const {email, password, checkedPolicy, handleInputChange,togglePolicy,handleLogIn,errors} = props;
+function RegisterContainer(props: Props & RouteComponentProps) {
+    const {email, password, confirm, errors,checkedPolicy, handleInputChange,togglePolicy,handleRegister} = props;
     return (
         <StyledContainer>
             <StyledImg src={logo} alt="logo" onClick={() => {props.history.push("/")}} />
-            <LoginForm
+            <RegisterForm
                 email={email}
                 history={props.history}
-                errors={errors}
                 password={password}
                 checkedPolicy={checkedPolicy}
+                confirm={confirm}
+                errors={errors}
                 handleInputChange={handleInputChange}
-                handleLogIn={handleLogIn}
+                handleRegister={handleRegister}
                 togglePolicy={togglePolicy}
             />
         </StyledContainer>
@@ -49,4 +51,4 @@ const StyledImg = styled.img`
     width: 60px;
 `;
 
-export default LoginContainer;
+export default RegisterContainer;

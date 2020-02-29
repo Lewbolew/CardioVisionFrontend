@@ -16,7 +16,7 @@ function Home(props:any) {
                         title='LOGIN'
                     />
                     <BasicButton
-                        onClick={() => {}}
+                        onClick={() => {props.history.push('/register')}}
                         title='REGISTER'
                     />
                 </ButtonWrapper>

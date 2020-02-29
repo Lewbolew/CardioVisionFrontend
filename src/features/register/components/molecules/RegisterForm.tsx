@@ -4,24 +4,25 @@ import styled from '@emotion/styled';
 import InputBox from "../../../../ui/components/atoms/InputBox";
 import BasicButton from "../../../../ui/components/atoms/BasicButton";
 import StyledAnchor from "../../../../ui/components/atoms/Anchor";
+import {RegisterErrors} from "../../pages";
 import WarningMessage from "../../../../ui/components/atoms/WarningMessage";
-import {LoginErrors} from "../../pages";
 type Props = {
     email: string;
     password: string;
-    checkedPolicy: boolean;
+    confirm: string;
+    errors?: RegisterErrors;
     history: any;
-    errors?: LoginErrors;
-    handleLogIn: () => void;
+    checkedPolicy: boolean;
+    handleRegister: () => void;
     togglePolicy: () => void;
     handleInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-const LoginForm = (props: Props) => {
-    const {email, handleInputChange, password, checkedPolicy, togglePolicy, handleLogIn,errors} = props;
+const RegisterForm = (props: Props) => {
+    const {email, handleInputChange, password, confirm, errors,checkedPolicy, togglePolicy, handleRegister} = props;
     return (
         <StyledContainer>
-            <Heading>Login</Heading>
+            <Heading>Register</Heading>
             <InputWrapper>
                 <P>Email:</P>
                 <InputBox
@@ -43,31 +44,34 @@ const LoginForm = (props: Props) => {
                 />
             </InputWrapper>
             <WarningMessage style={{marginLeft: '100px'}} text={errors?.passwordError} />
-            <FlexWrapper>
-                <StyledAnchor onClick={() => {props.history.push('/register')}}>Don't have an account?</StyledAnchor>
-                <A>Forgot password?</A>
-            </FlexWrapper>
+            <InputWrapper>
+                <P>Confirm:</P>
+                <InputBox
+                    onChange={handleInputChange}
+                    value={password}
+                    type={confirm.length === 0 ? 'text' : 'password'}
+                    name='confirm'
+                    placeholder='confirm password'
+                />
+            </InputWrapper>
+            <WarningMessage style={{marginLeft: '100px'}} text={errors?.confirmError} />
+            <A onClick={() => {props.history.push('/login')}}>Already have an account?</A>
             <PolicyWrapper>
                 <input type="checkbox" checked={checkedPolicy} onChange={togglePolicy}/>
                 <span>I accept the </span>
-                <StyledAnchor href="/"> Terms of Service </StyledAnchor>
-                <span>GDPR complaint</span>
+                <StyledAnchor> Terms of Service </StyledAnchor>
             </PolicyWrapper>
             <BasicButton
-                onClick={handleLogIn}
-                title='LOG IN'
-                name='login'
+                onClick={handleRegister}
+                title='REGISTER'
+                name='register'
                 disabled={!checkedPolicy}
             />
         </StyledContainer>
     );
 };
 
-const FlexWrapper = styled.div`
-    display: flex;
-    justify-content: space-between;
-    margin: 18px 0 8px 0;
-`;
+
 
 const Heading = styled.h1`
     text-transform: uppercase;
@@ -77,6 +81,7 @@ const Heading = styled.h1`
 
 const A = styled(StyledAnchor)`
     align-self: flex-end;
+    margin: 24px 0;
 `;
 
 const P = styled.p`
@@ -94,6 +99,7 @@ const InputWrapper = styled.div`
 `;
 
 const PolicyWrapper = styled(InputWrapper)`
+    margin: 0;
     margin-bottom: 12px;
     align-self: center;
     & > a {
@@ -114,4 +120,4 @@ const StyledContainer = styled.div`
     }
 `;
 
-export default LoginForm;
+export default RegisterForm;

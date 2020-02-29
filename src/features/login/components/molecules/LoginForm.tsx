@@ -44,7 +44,7 @@ const LoginForm = (props: Props) => {
             </InputWrapper>
             <WarningMessage style={{marginLeft: '100px'}} text={errors?.passwordError} />
             <FlexWrapper>
-                <StyledAnchor onClick={() => {props.history.push('/register')}}>Don't have an account?</StyledAnchor>
+                <StyledAnchor onClick={() => {props.history.push('/register')}}>Create an account</StyledAnchor>
                 <A>Forgot password?</A>
             </FlexWrapper>
             <PolicyWrapper>

@@ -55,7 +55,7 @@ const RegisterForm = (props: Props) => {
                 />
             </InputWrapper>
             <WarningMessage style={{marginLeft: '100px'}} text={errors?.confirmError} />
-            <A onClick={() => {props.history.push('/login')}}>Already have an account?</A>
+            <A onClick={() => {props.history.push('/login')}}>Sign in instead</A>
             <PolicyWrapper>
                 <input type="checkbox" checked={checkedPolicy} onChange={togglePolicy}/>
                 <span>I accept the </span>

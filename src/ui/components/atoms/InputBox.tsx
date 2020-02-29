@@ -36,11 +36,11 @@ const Input = styled.input`
   width: 100%;
   color: #333;
   padding: 12px 6px;
-  font-size: 1.1em;
+  font-size: 16px;
   background-color: #f4f4f4;
   font-weight: 300;
   &::-webkit-input-placeholder {
-    font-size: 1.1em;
+    font-size: 16px;
     color: #707070;
   }
 `;

@@ -12,7 +12,7 @@ type Props = {
     handleInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-function LoginForm(props: Props) {
+const LoginForm = (props: Props) => {
     const {email, handleInputChange, password, checkedPolicy, togglePolicy, handleLogIn} = props;
     return (
         <StyledContainer>

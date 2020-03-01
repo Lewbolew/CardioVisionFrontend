@@ -1,19 +1,14 @@
 import React, { Component } from 'react';
 import RegisterContainer from "../components/organisms/RegisterContainer";
 import {RouteComponentProps} from "react-router-dom";
+import {RegisterErrors, RegisterInputTypes} from "../interfaces";
+import {checkRegisterFields} from "../helper";
 
 
 type Props = {
     test: boolean;
 };
 
-export interface RegisterErrors {
-    emailError?: string;
-    passwordError?: string;
-    confirmError?: string;
-}
-
-type InputTypes = 'email' | 'password' | 'confirm'
 
 type State = {
     email: string;
@@ -36,7 +31,7 @@ class Register extends Component<Props & RouteComponentProps, State> {
 
     handleInputChange = (event:  React.ChangeEvent<HTMLInputElement>) => {
         const newState: State = { ...this.state };
-        const key:InputTypes = event.target.name as InputTypes;
+        const key:RegisterInputTypes = event.target.name as RegisterInputTypes;
         newState[key] = event.target.value;
         this.setState({
             ...newState
@@ -52,7 +47,15 @@ class Register extends Component<Props & RouteComponentProps, State> {
 
 
     handleRegister = () => {
-        // call of the login api here ---
+        const errors: RegisterErrors = checkRegisterFields(this.state.email, this.state.password, this.state.confirm);
+        if((errors.email && errors.email.length > 0) ||
+            (errors.password && errors.password.length > 0) ||
+            (errors.confirm && errors.confirm.length > 0)
+        ){
+            this.setState({errors});
+            return;
+        }
+        // call of the register api here ---
     };
 
 

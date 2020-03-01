@@ -5,7 +5,7 @@ import InputBox from "../../../../ui/components/atoms/InputBox";
 import BasicButton from "../../../../ui/components/atoms/BasicButton";
 import StyledAnchor from "../../../../ui/components/atoms/Anchor";
 import WarningMessage from "../../../../ui/components/atoms/WarningMessage";
-import {LoginErrors} from "../../pages";
+import {LoginErrors} from "../../interfaces";
 type Props = {
     email: string;
     password: string;
@@ -31,7 +31,7 @@ const LoginForm = (props: Props) => {
                     placeholder='you@somemail.com'
                 />
             </InputWrapper>
-            <WarningMessage style={{marginLeft: '100px'}} text={errors?.emailError} />
+            <WarningMessage style={{marginLeft: '100px'}} text={errors?.email} />
             <InputWrapper>
                 <P>Password:</P>
                 <InputBox
@@ -42,7 +42,7 @@ const LoginForm = (props: Props) => {
                     placeholder='pass....'
                 />
             </InputWrapper>
-            <WarningMessage style={{marginLeft: '100px'}} text={errors?.passwordError} />
+            <WarningMessage style={{marginLeft: '100px'}} text={errors?.password} />
             <FlexWrapper>
                 <StyledAnchor onClick={() => {props.history.push('/register')}}>Create an account</StyledAnchor>
                 <A>Forgot password?</A>

@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 import InputBox from "../../../../ui/components/atoms/InputBox";
 import BasicButton from "../../../../ui/components/atoms/BasicButton";
 import StyledAnchor from "../../../../ui/components/atoms/Anchor";
-import {RegisterErrors} from "../../pages";
+import {RegisterErrors} from "../../interfaces";
 import WarningMessage from "../../../../ui/components/atoms/WarningMessage";
 type Props = {
     email: string;
@@ -32,7 +32,7 @@ const RegisterForm = (props: Props) => {
                     placeholder='you@somemail.com'
                 />
             </InputWrapper>
-            <WarningMessage style={{marginLeft: '100px'}} text={errors?.emailError} />
+            <WarningMessage style={{marginLeft: '100px'}} text={errors?.email} />
             <InputWrapper>
                 <P>Password:</P>
                 <InputBox
@@ -43,18 +43,18 @@ const RegisterForm = (props: Props) => {
                     placeholder='pass....'
                 />
             </InputWrapper>
-            <WarningMessage style={{marginLeft: '100px'}} text={errors?.passwordError} />
+            <WarningMessage style={{marginLeft: '100px'}} text={errors?.password} />
             <InputWrapper>
                 <P>Confirm:</P>
                 <InputBox
                     onChange={handleInputChange}
-                    value={password}
+                    value={confirm}
                     type={confirm.length === 0 ? 'text' : 'password'}
                     name='confirm'
                     placeholder='confirm password'
                 />
             </InputWrapper>
-            <WarningMessage style={{marginLeft: '100px'}} text={errors?.confirmError} />
+            <WarningMessage style={{marginLeft: '100px'}} text={errors?.confirm} />
             <A onClick={() => {props.history.push('/login')}}>Sign in instead</A>
             <PolicyWrapper>
                 <input type="checkbox" checked={checkedPolicy} onChange={togglePolicy}/>

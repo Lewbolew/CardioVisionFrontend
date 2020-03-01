@@ -27,6 +27,7 @@ export default BasicButton;
 const Button = styled.button`
   outline: none !important;
   border: none;
+  border-radius: 4px;
   width: 100%;
   color: #fff;
   background: #666;

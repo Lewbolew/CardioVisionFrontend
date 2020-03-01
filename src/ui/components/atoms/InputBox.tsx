@@ -6,6 +6,7 @@ type ExpandedOnChangeProps = {
     value?: string;
     name?: string;
     readOnly?: boolean;
+    type?: string;
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => any;
 };
 
@@ -19,6 +20,7 @@ class InputBox extends React.Component<ExpandedOnChangeProps> {
                 onClick={(event) => {
                     event.preventDefault();
                 }}
+                type={this.props.type}
                 name={this.props.name}
                 readOnly={this.props.readOnly}
             />
@@ -34,11 +36,11 @@ const Input = styled.input`
   width: 100%;
   color: #333;
   padding: 12px 6px;
-  font-size: 1.1em;
+  font-size: 16px;
   background-color: #f4f4f4;
   font-weight: 300;
   &::-webkit-input-placeholder {
-    font-size: 1.1em;
+    font-size: 16px;
     color: #707070;
   }
 `;

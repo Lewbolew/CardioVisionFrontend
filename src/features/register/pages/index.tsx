@@ -1,31 +1,35 @@
 import React, { Component } from 'react';
-import LoginContainer from "../components/organisms/LoginContainer";
+import RegisterContainer from "../components/organisms/RegisterContainer";
 import {RouteComponentProps} from "react-router-dom";
 
-type InputTypes = 'email' | 'password';
 
 type Props = {
     test: boolean;
 };
 
-export interface LoginErrors {
+export interface RegisterErrors {
     emailError?: string;
     passwordError?: string;
+    confirmError?: string;
 }
+
+type InputTypes = 'email' | 'password' | 'confirm'
 
 type State = {
     email: string;
-    password: string
-    errors?: LoginErrors;
+    password: string;
+    confirm: string;
+    errors?: RegisterErrors;
     checkedPolicy: boolean;
 };
 
-class Login extends Component<Props & RouteComponentProps, State> {
+class Register extends Component<Props & RouteComponentProps, State> {
     constructor(props:Props & RouteComponentProps) {
         super(props);
         this.state = {
             email: '',
             password: '',
+            confirm: '',
             checkedPolicy: false,
         };
     }
@@ -40,35 +44,37 @@ class Login extends Component<Props & RouteComponentProps, State> {
     };
 
     togglePolicy = () => {
-      this.setState({
-          checkedPolicy: !this.state.checkedPolicy,
-      })
+        this.setState({
+            checkedPolicy: !this.state.checkedPolicy,
+        })
     };
 
 
 
-    handleLogIn = () => {
+    handleRegister = () => {
         // call of the login api here ---
     };
 
 
     render() {
-        const {email, password,checkedPolicy, errors} = this.state;
+        const {email, password,checkedPolicy, errors,confirm} = this.state;
         return (
-            <LoginContainer
+            <RegisterContainer
                 history={this.props.history}
                 location={this.props.location}
                 match={this.props.match}
                 email={email}
-                errors={errors}
                 password={password}
-                handleInputChange={this.handleInputChange}
-                togglePolicy={this.togglePolicy}
-                handleLogIn={this.handleLogIn}
                 checkedPolicy={checkedPolicy}
+                confirm={confirm}
+                togglePolicy={this.togglePolicy}
+                handleInputChange={this.handleInputChange}
+                handleRegister={this.handleRegister}
+                errors={errors}
             />
+
         );
     }
 }
 
-export default Login;
+export default Register;

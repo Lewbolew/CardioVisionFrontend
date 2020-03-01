@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
 import LoginContainer from "../components/organisms/LoginContainer";
 import {RouteComponentProps} from "react-router-dom";
+import {LoginErrors, LoginInputTypes} from "../interfaces";
+import {checkLoginFields} from "../helper";
 
-type InputTypes = 'email' | 'password';
+
 
 type Props = {
     test: boolean;
 };
 
-export interface LoginErrors {
-    emailError?: string;
-    passwordError?: string;
-}
+
 
 type State = {
     email: string;
@@ -32,8 +31,10 @@ class Login extends Component<Props & RouteComponentProps, State> {
 
     handleInputChange = (event:  React.ChangeEvent<HTMLInputElement>) => {
         const newState: State = { ...this.state };
-        const key:InputTypes = event.target.name as InputTypes;
+        const key:LoginInputTypes = event.target.name as LoginInputTypes;
         newState[key] = event.target.value;
+        if(newState.errors)
+            newState.errors[key] = '';
         this.setState({
             ...newState
         })
@@ -48,6 +49,12 @@ class Login extends Component<Props & RouteComponentProps, State> {
 
 
     handleLogIn = () => {
+        const errors: LoginErrors = checkLoginFields(this.state.email, this.state.password);
+        if((errors.email && errors.email.length > 0) ||
+            (errors.password && errors.password.length > 0)){
+            this.setState({errors});
+            return;
+        }
         // call of the login api here ---
     };
 

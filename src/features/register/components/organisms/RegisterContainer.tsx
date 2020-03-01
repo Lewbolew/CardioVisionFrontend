@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 import logo from '../../../../ui/images/logo-short.svg'
 import { RouteComponentProps } from "react-router-dom";
 import RegisterForm from "../molecules/RegisterForm";
-import {RegisterErrors} from "../../pages";
+import {RegisterErrors} from "../../interfaces";
 
 type Props = {
     email: string;

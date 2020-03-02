@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/CardioVisionFrontend/static/css/main.76e27cc9.chunk.css",
+    "main.js": "/CardioVisionFrontend/static/js/main.2a998f56.chunk.js",
+    "main.js.map": "/CardioVisionFrontend/static/js/main.2a998f56.chunk.js.map",
+    "runtime-main.js": "/CardioVisionFrontend/static/js/runtime-main.c19e92df.js",
+    "runtime-main.js.map": "/CardioVisionFrontend/static/js/runtime-main.c19e92df.js.map",
+    "static/js/2.4bf962a1.chunk.js": "/CardioVisionFrontend/static/js/2.4bf962a1.chunk.js",
+    "static/js/2.4bf962a1.chunk.js.map": "/CardioVisionFrontend/static/js/2.4bf962a1.chunk.js.map",
+    "index.html": "/CardioVisionFrontend/index.html",
+    "precache-manifest.addecd11e97f797337092db283bcd866.js": "/CardioVisionFrontend/precache-manifest.addecd11e97f797337092db283bcd866.js",
+    "service-worker.js": "/CardioVisionFrontend/service-worker.js",
+    "static/css/main.76e27cc9.chunk.css.map": "/CardioVisionFrontend/static/css/main.76e27cc9.chunk.css.map",
+    "static/js/2.4bf962a1.chunk.js.LICENSE.txt": "/CardioVisionFrontend/static/js/2.4bf962a1.chunk.js.LICENSE.txt",
+    "static/media/logo-full.svg": "/CardioVisionFrontend/static/media/logo-full.8915baec.svg",
+    "static/media/logo-short.svg": "/CardioVisionFrontend/static/media/logo-short.2b76f8db.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c19e92df.js",
+    "static/js/2.4bf962a1.chunk.js",
+    "static/css/main.76e27cc9.chunk.css",
+    "static/js/main.2a998f56.chunk.js"
+  ]
+}

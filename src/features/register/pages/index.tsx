@@ -56,6 +56,8 @@ class Register extends Component<Props & RouteComponentProps, State> {
             return;
         }
         // call of the register api here ---
+        this.props.history.push("/patients");
+
     };
 
 

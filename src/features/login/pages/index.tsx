@@ -56,6 +56,8 @@ class Login extends Component<Props & RouteComponentProps, State> {
             return;
         }
         // call of the login api here ---
+        this.props.history.push("/patients");
+
     };
 
 

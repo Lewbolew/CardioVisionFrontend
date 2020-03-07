@@ -12,6 +12,7 @@ type Props = {
 
 type State = {
     email: string;
+    username: string
     password: string;
     confirm: string;
     errors?: RegisterErrors;
@@ -23,6 +24,7 @@ class Register extends Component<Props & RouteComponentProps, State> {
         super(props);
         this.state = {
             email: '',
+            username: '',
             password: '',
             confirm: '',
             checkedPolicy: false,

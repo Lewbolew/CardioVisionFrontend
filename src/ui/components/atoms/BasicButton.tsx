@@ -32,4 +32,13 @@ const Button = styled.button`
   color: #fff;
   background: #666;
   padding: 12px;
+  transition: 0.1s;
+  
+  &:hover {
+    opacity: 0.8;
+  }
+  
+  &:active {
+    opacity: 0.9;
+  }
 `;

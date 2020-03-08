@@ -44,6 +44,8 @@ class Register extends Component<Props & RouteComponentProps, State> {
         const newState: State = { ...this.state };
         const key:RegisterInputTypes = event.target.name as RegisterInputTypes;
         newState[key] = event.target.value;
+        if(newState.errors)
+            newState.errors[key] = '';
         this.setState({
             ...newState
         })
@@ -62,8 +64,10 @@ class Register extends Component<Props & RouteComponentProps, State> {
     };
 
     handleRegister = async () => {
-        const errors: RegisterErrors = checkRegisterFields(this.state.email, this.state.password, this.state.confirm);
+        const errors: RegisterErrors = checkRegisterFields(this.state.email, this.state.password,this.state.username,
+            this.state.confirm);
         if((errors.email && errors.email.length > 0) ||
+            (errors.username && errors.username.length > 0) ||
             (errors.password && errors.password.length > 0) ||
             (errors.confirm && errors.confirm.length > 0)
         ){

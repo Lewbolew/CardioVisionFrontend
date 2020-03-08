@@ -8,12 +8,9 @@ import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
 import {Spinner} from "../../../ui/components/atoms/Spinner";
 
-
-
 type Props = {
     test: boolean;
 };
-
 
 type State = {
     email: string;
@@ -82,8 +79,6 @@ class Register extends Component<Props & RouteComponentProps, State> {
             spinner: true,
         });
         const response:Response = await register(requestData);
-        console.log('response: ', response)
-        console.log(response.response);
         const errorMessage: string = response.response[Object.keys(response.response)[0]];
         if(!response.ok){
             this.setState({
@@ -94,19 +89,14 @@ class Register extends Component<Props & RouteComponentProps, State> {
                 })
             });
         }else{
-            localStorage.setItem('myData', response.response.key);
+            localStorage.setItem('token', response.response.key);
+            this.props.history.push("/patients");
         }
 
         this.setState({
             spinner: false,
-        })
-        console.log('response: ', response)
-        // call of the register api here ---
-        // this.props.history.push("/patients");
-
+        });
     };
-
-
 
     render() {
         const {email, password,checkedPolicy, errors,confirm, username} = this.state;

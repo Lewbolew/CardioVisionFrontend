@@ -21,7 +21,7 @@ const PatientsList = (props: Props) => {
                 </TableHeader>
                 {patientsList.map(patient => {
                     return (
-                        <PatientItem patient={patient} />
+                        <PatientItem key={patient.mrn} patient={patient} />
                     )
                 })}
             </StyledContainer>

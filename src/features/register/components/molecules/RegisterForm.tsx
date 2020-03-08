@@ -10,6 +10,7 @@ type Props = {
     email: string;
     password: string;
     confirm: string;
+    username: string;
     errors?: RegisterErrors;
     history: any;
     checkedPolicy: boolean;
@@ -19,10 +20,29 @@ type Props = {
 };
 
 const RegisterForm = (props: Props) => {
-    const {email, handleInputChange, password, confirm, errors,checkedPolicy, togglePolicy, handleRegister} = props;
+    const {
+        email,
+        username,
+        handleInputChange,
+        password,
+        confirm,
+        errors,
+        checkedPolicy,
+        togglePolicy,
+        handleRegister
+    } = props;
     return (
         <StyledContainer>
             <Heading>Register</Heading>
+            <InputWrapper>
+                <P>Username:</P>
+                <InputBox
+                    onChange={handleInputChange}
+                    value={username}
+                    name='username'
+                    placeholder='your username'
+                />
+            </InputWrapper>
             <InputWrapper>
                 <P>Email:</P>
                 <InputBox

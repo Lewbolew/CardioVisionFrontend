@@ -10,6 +10,7 @@ type Props = {
     email: string;
     password: string;
     checkedPolicy: boolean;
+    username: string;
     confirm: string;
     errors?: RegisterErrors;
     togglePolicy: () => void;
@@ -18,13 +19,24 @@ type Props = {
 };
 
 function RegisterContainer(props: Props & RouteComponentProps) {
-    const {email, password, confirm, errors,checkedPolicy, handleInputChange,togglePolicy,handleRegister} = props;
+    const {
+        email,
+        password,
+        confirm,
+        errors,
+        checkedPolicy,
+        handleInputChange,
+        togglePolicy,
+        handleRegister,
+        username
+    } = props;
     return (
         <StyledContainer>
             <StyledImg src={logo} alt="logo" onClick={() => {props.history.push("/")}} />
             <RegisterForm
                 email={email}
                 history={props.history}
+                username={username}
                 password={password}
                 checkedPolicy={checkedPolicy}
                 confirm={confirm}

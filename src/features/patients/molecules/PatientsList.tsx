@@ -7,6 +7,7 @@ import '../css/patientItem.css';
 
 type Props = {
     patientsList: Patient[];
+    history: any;
 };
 
 const PatientsList = (props: Props) => {
@@ -22,7 +23,7 @@ const PatientsList = (props: Props) => {
                 </TableHeader>
                 {patientsList.map(patient => {
                     return (
-                        <PatientItem key={patient.mrn} patient={patient} />
+                        <PatientItem key={patient.mrn} patient={patient} history={props.history} />
                     )
                 })}
             </StyledContainer>

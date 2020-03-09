@@ -49,7 +49,7 @@ class Patients extends Component<Props & RouteComponentProps, State> {
             <Wrapper>
                 <StyledImg src={logo} alt="logo" onClick={() => {this.props.history.push('/')}}/>
                 <Heading>Patients List</Heading>
-                <PatientsList patientsList={patientsList} />
+                <PatientsList patientsList={patientsList} history={this.props.history}/>
             </Wrapper>
         );
     }

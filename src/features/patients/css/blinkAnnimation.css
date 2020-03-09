@@ -1,0 +1,10 @@
+.blinker{
+    animation: blinker 0.9s linear infinite;
+}
+
+
+@keyframes blinker {
+    50% {
+        background-color: #AD1F3A;
+    }
+}

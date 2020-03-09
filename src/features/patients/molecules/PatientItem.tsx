@@ -2,6 +2,7 @@ import * as React from 'react';
 // @ts-ignore
 import styled from '@emotion/styled';
 import {Patient} from "../interfaces";
+import PriorityCircle from "../atoms/PriorityCircle";
 
 type Props = {
     patient: Patient;
@@ -12,8 +13,8 @@ const PatientItem = (props: Props) => {
     return (
         <>
             <StyledContainer>
-                <P>{patient.mrn}</P>
-                <P>{patient.priority}</P>
+                <P><PriorityCircle patientPriority={patient.priority} size={24} /></P>
+                <P className='patientId'>{patient.mrn}</P>
                 <P>{patient.stenosisScore}</P>
                 <P>{patient.studyTime}</P>
             </StyledContainer>
@@ -23,7 +24,11 @@ const PatientItem = (props: Props) => {
 
 const P = styled.p`
     color: #333;
-    width: 70px;
+    width: 90px;
+    text-align: center;
+    & div {
+        margin: 0 auto;
+    }
 `;
 
 const StyledContainer = styled.div`

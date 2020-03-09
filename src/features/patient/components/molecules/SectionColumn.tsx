@@ -31,6 +31,8 @@ const StyledButton = styled.button`
     padding: 6px 0;
     border: none;
     transition: 0.1s;
+    margin-bottom:6px; 
+    font-size: 1em;
     &:hover {
         opacity: 0.8;
     }
@@ -39,7 +41,7 @@ const StyledButton = styled.button`
 const StyledColumn = styled(StyledColumns)`
     justify-content: space-between;
     align-items: center;
-    padding: 14px 0;
+    padding: 14px 0  7px 0;
     border-left: none;
 `;
 

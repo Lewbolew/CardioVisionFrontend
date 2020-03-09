@@ -10,11 +10,11 @@ type Props = {
 };
 
 const temporaryPatients: Patient[] = [
-    {mrn: 1,priority: 2, stenosisScore: 25, studyTime: '2 days'},
-    {mrn: 2,priority: 5, stenosisScore: 2, studyTime: '5 days'},
-    {mrn: 3,priority: 1, stenosisScore: 30, studyTime: '3 days'},
-    {mrn: 4,priority: 24, stenosisScore: 8, studyTime: '1 month'},
-    {mrn: 5,priority: 7, stenosisScore: 2, studyTime: '14 days'},
+    {mrn: 1,priority: 0, stenosisScore: 25, studyTime: '2 days'},
+    {mrn: 2,priority: 1, stenosisScore: 2, studyTime: '5 days'},
+    {mrn: 3,priority: 0, stenosisScore: 30, studyTime: '3 days'},
+    {mrn: 4,priority: 1, stenosisScore: 8, studyTime: '1 month'},
+    {mrn: 5,priority: 2, stenosisScore: 2, studyTime: '14 days'},
 ];
 
 type State = {
@@ -38,8 +38,8 @@ class Patients extends Component<Props & RouteComponentProps, State> {
     }
 
     compare = (a:Patient, b:Patient) =>  {
-        if (a.priority > b.priority) return 1;
-        if (b.priority > a.priority) return -1;
+        if (a.priority > b.priority) return -1;
+        if (b.priority > a.priority) return 1;
         return 0;
     };
 

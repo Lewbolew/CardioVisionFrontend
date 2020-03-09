@@ -3,6 +3,7 @@ import * as React from 'react';
 import styled from '@emotion/styled';
 import {Patient} from "../interfaces";
 import PatientItem from "./PatientItem";
+import '../css/patientItem.css';
 
 type Props = {
     patientsList: Patient[];
@@ -14,8 +15,8 @@ const PatientsList = (props: Props) => {
         <>
             <StyledContainer>
                 <TableHeader>
-                    <P>Patient ID</P>
                     <P>Priority</P>
+                    <P className='patientId'>Patient ID</P>
                     <P>stenosisScore</P>
                     <P>studyTime</P>
                 </TableHeader>
@@ -35,6 +36,10 @@ const StyledContainer = styled.div`
     display:flex;
     flex-direction: column;
     border-radius: 4px;
+    
+    @media screen and (max-width: 600px) {
+        width: 100%;
+    }
 `;
 const TableHeader = styled.div`
     display: flex;
@@ -43,7 +48,8 @@ const TableHeader = styled.div`
 `;
 
 const P = styled.p`
-    width: 80px;
+    width: 90px;
+    text-align: center;
 `;
 
 export default PatientsList;

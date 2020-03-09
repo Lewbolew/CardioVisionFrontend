@@ -1,14 +1,12 @@
-import {Response} from '../../../api/interfaces'
+import {Response} from '../../../api/interfaces';
 
-export interface RegisterData {
+export interface LoginData {
     email: string;
-    username: string;
-    password1: string;
-    password2: string;
+    password: string
 }
 
-export function register(data:RegisterData) {
-    return fetch('http://cardiovision.ai/api/registration/', {
+export function login(data:LoginData) {
+    return fetch('http://cardiovision.ai/api/login/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -17,9 +15,9 @@ export function register(data:RegisterData) {
     })
         .then(async function (response) {
             const parsedResponse: Response = {
-              response: await response.json(),
-              ok: response.ok,
-              status: response.status,
+                response: await response.json(),
+                ok: response.ok,
+                status: response.status,
             };
             return parsedResponse;
         })

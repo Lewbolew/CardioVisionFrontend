@@ -47,7 +47,7 @@ class Patients extends Component<Props & RouteComponentProps, State> {
         const {patientsList} = this.state;
         return (
             <Wrapper>
-                <StyledImg src={logo} alt="logo"/>
+                <StyledImg src={logo} alt="logo" onClick={() => {this.props.history.push('/')}}/>
                 <Heading>Patients List</Heading>
                 <PatientsList patientsList={patientsList} />
             </Wrapper>
@@ -70,6 +70,7 @@ const Wrapper = styled.div`
 
 const StyledImg = styled.img`
     width: 60px;
+    cursor: pointer;
 `;
 
 export default Patients;

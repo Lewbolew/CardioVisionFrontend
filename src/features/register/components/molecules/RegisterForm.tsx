@@ -43,6 +43,7 @@ const RegisterForm = (props: Props) => {
                     placeholder='your username'
                 />
             </InputWrapper>
+            <WarningMessage style={{marginLeft: '100px'}} text={errors?.username} />
             <InputWrapper>
                 <P>Email:</P>
                 <InputBox

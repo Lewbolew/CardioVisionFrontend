@@ -5,26 +5,26 @@ import {Patient} from "../interfaces";
 import PriorityCircle from "../atoms/PriorityCircle";
 
 type Props = {
-    patient: Patient;
+    patient: Patient ;
+    history: any;
 };
 
 const PatientItem = (props: Props) => {
     const {patient} = props;
     return (
-        <>
-            <StyledContainer>
-                <P><PriorityCircle patientPriority={patient.priority} size={24} /></P>
-                <P className='patientId'>{patient.mrn}</P>
-                <P>{patient.stenosisScore}</P>
-                <P>{patient.studyTime}</P>
-            </StyledContainer>
-        </>
+        <StyledContainer onClick={() => {props.history.push('/patient')}}>
+            <P><PriorityCircle patientPriority={patient.priority} size={24} /></P>
+            <P className='patientId'>{patient.mrn}</P>
+            <P>{patient.stenosisScore}</P>
+            <P>{patient.studyTime}</P>
+        </StyledContainer>
+
     );
 };
 
 const P = styled.p`
     color: #333;
-    width: 90px;
+    width: 110px;
     text-align: center;
     & div {
         margin: 0 auto;
@@ -33,7 +33,7 @@ const P = styled.p`
 
 const StyledContainer = styled.div`
     display:flex;
-    padding: 4px 36px;
+    padding: 4px 24px;
     margin-top: 12px;
     justify-content: space-between;
     box-shadow: 0px 2px 4px -1px #00000026;

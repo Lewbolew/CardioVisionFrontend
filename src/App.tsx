@@ -5,6 +5,7 @@ import Home from './features/home/pages';
 import Register from "./features/register/pages";
 import Patients from "./features/patients/pages";
 import Patient from "./features/patient/pages";
+import PatientChart from "./features/patientChart/pages/index";
 import './App.css';
 
 
@@ -18,6 +19,7 @@ function App() {
                 <Route path="/register" exact component={Register} />
                 <Route path="/patients" exact component={Patients} />
                 <Route path="/patient" exact component={Patient} />
+                <Route path="/patient-chart" exact component={PatientChart} />
             </Switch>
         </BrowserRouter>
     </div>

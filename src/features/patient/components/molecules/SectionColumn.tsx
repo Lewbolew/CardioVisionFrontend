@@ -14,7 +14,7 @@ const SectionColumn = (props: Props) => {
         <StyledColumn size={150}>
             {section.map(section => {
                 return (
-                    <StyledButton onClick={() => {props.history.push('/patient-chart')}}>
+                    <StyledButton onClick={() => {window.location.href='http://157.245.23.187/viz'}}>
                         {section}
                     </StyledButton>
                 )

@@ -30,8 +30,7 @@ class PatientChart extends Component<Props & RouteComponentProps, State> {
         return (
             <main className="visualization">
                 <div className="plot-wrapper"></div>
-                <img className="mask" alt="mask" src="static/masks/1693284930_1.png" />
-                <button className="mask__control">Show Prediction</button>
+                <img className="mask" alt="mask" src="masks/1693284930_1.png" />
             </main>
         );
     }

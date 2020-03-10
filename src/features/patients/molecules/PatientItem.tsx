@@ -24,7 +24,7 @@ const PatientItem = (props: Props) => {
 
 const P = styled.p`
     color: #333;
-    width: 90px;
+    width: 110px;
     text-align: center;
     & div {
         margin: 0 auto;
@@ -33,7 +33,7 @@ const P = styled.p`
 
 const StyledContainer = styled.div`
     display:flex;
-    padding: 4px 36px;
+    padding: 4px 24px;
     margin-top: 12px;
     justify-content: space-between;
     box-shadow: 0px 2px 4px -1px #00000026;

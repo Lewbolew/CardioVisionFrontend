@@ -18,8 +18,8 @@ const PatientsList = (props: Props) => {
                 <TableHeader>
                     <P>Priority</P>
                     <P className='patientId'>Patient ID</P>
-                    <P>stenosisScore</P>
-                    <P>studyTime</P>
+                    <P>Stenosis Score</P>
+                    <P>Study Time</P>
                 </TableHeader>
                 {patientsList.map(patient => {
                     return (
@@ -37,19 +37,19 @@ const StyledContainer = styled.div`
     display:flex;
     flex-direction: column;
     border-radius: 4px;
-    
+   
     @media screen and (max-width: 600px) {
         width: 100%;
     }
 `;
 const TableHeader = styled.div`
     display: flex;
-    padding: 0 36px;
+    padding: 0 24px;
     justify-content: space-between;
 `;
 
 const P = styled.p`
-    width: 90px;
+    width: 110px;
     text-align: center;
 `;
 

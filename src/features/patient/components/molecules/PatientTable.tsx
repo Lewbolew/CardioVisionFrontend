@@ -15,7 +15,7 @@ const PatientTable = (props: Props) => {
     const {patient} = props;
     return (
         <StyledContainer>
-            <SectionColumn section={patient.section} />
+            <SectionColumn section={patient.section} history={props.history} />
             <PredictionColumn prediction={patient.prediction} />
             <ConfidenceColumn style={{borderRight: '1px solid #666'}} confidence={patient.confidence} />
         </StyledContainer>

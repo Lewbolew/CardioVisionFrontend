@@ -5,6 +5,7 @@ import styled from "@emotion/styled";
 
 type Props = {
     section: string[];
+    history: any;
 };
 
 const SectionColumn = (props: Props) => {
@@ -13,7 +14,7 @@ const SectionColumn = (props: Props) => {
         <StyledColumn size={150}>
             {section.map(section => {
                 return (
-                    <StyledButton>
+                    <StyledButton onClick={() => {props.history.push('/patient-chart')}}>
                         {section}
                     </StyledButton>
                 )
@@ -30,7 +31,7 @@ const StyledButton = styled.button`
     cursor: pointer;
     padding: 6px 0;
     border: none;
-    transition: 0.1s;
+    transition: 0.2s;
     margin-bottom:6px; 
     font-size: 1em;
     &:hover {

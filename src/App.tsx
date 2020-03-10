@@ -5,7 +5,7 @@ import Home from './features/home/pages';
 import Register from "./features/register/pages";
 import Patients from "./features/patients/pages";
 import Patient from "./features/patient/pages";
-import PatientChart from "./features/patientChart/pages";
+import PatientChart from "./features/patientChart/pages/index";
 import './App.css';
 
 

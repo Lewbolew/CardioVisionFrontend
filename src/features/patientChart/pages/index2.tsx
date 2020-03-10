@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {RouteComponentProps} from "react-router-dom";
 import styled from '@emotion/styled';
-import {app} from '../src/index';
+
 
 
 
@@ -21,23 +21,18 @@ class PatientChart extends Component<Props & RouteComponentProps, State> {
         }
     }
 
-    componentDidMount(): void {
-        app();
-    }
-
-
     render() {
         return (
-            <main className="visualization">
-                <div className="plot-wrapper"></div>
-                <img className="mask" alt="mask" src="static/masks/1693284930_1.png" />
-                <button className="mask__control">Show Prediction</button>
-            </main>
+            <div>
+            </div>
         );
     }
 }
 
-
+const Heading = styled.h1`
+    color: #333;
+    text-transform: uppercase;
+`;
 
 
 export default PatientChart;

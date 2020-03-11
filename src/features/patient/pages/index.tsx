@@ -6,13 +6,18 @@ import BasicButton from "../../../ui/components/atoms/BasicButton";
 import {Patient} from "../interfaces";
 import PatientTableContainer from "../components/molecules/PatientTableContainer";
 
+
+type RouteParams = {
+    id: string;
+};
+
 type Props = {
     test: boolean;
-};
+} & RouteComponentProps<RouteParams>;
 
 type State = {
     patient: Patient | undefined;
-};
+} ;
 
 const patient: Patient = { /// here to imitate the backend
     patientId: 'ID-090DfR3',
@@ -33,6 +38,9 @@ class Patients extends Component<Props & RouteComponentProps, State> {
 
     componentDidMount(): void {
         // get patients info from backend here
+        let currentPatient: Patient = patient;
+
+        currentPatient.patientId = this.props.match.params.id;
         this.setState({
             patient: patient,
         })

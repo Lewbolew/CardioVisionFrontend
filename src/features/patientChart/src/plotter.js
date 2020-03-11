@@ -6,7 +6,7 @@ import { addScroll } from "./scroll";
 
 
 export const plot = (container, data) => {
-  const plotContainer = d3
+  d3
     .select(container)
     .append("svg")
     .classed("plot", true)

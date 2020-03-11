@@ -7,7 +7,7 @@ export const addScroll = (plotContainer, data) => {
   // select mask element
   const mask = document.querySelector(".mask");
 
-  const scrollLine = scrollGroup
+  scrollGroup
     .append("path")
     .classed("scroll-line", true)
     .style("opacity", 0);
@@ -51,25 +51,25 @@ function addMousemoveHandler(scrollGroup, mask, data) {
   return scrollGroup;
 }
 
-const addMaskResizeHandler = (scrollGroup, mask) => {
-  // const isActivated = false;
-
-  const transformMaskClass = "mask--fullsize";
-  mask.addEventListener("click", () => {
-
-    if (!mask.classList.contains(transformMaskClass)) {
-      mask.classList.add(transformMaskClass);
-    } else {
-      mask.classList.remove(transformMaskClass);
-    }
-  });
-
-  // const activationButton = document.querySelector(".mask__control");
-  // activationButton.addEventListener("click", () => {
-  //   mask.setAttribute("src", "data/" + data[x - config.xTicks[0]]);
-  // });
-  return scrollGroup;
-};
+// const addMaskResizeHandler = (scrollGroup, mask) => {
+//   // const isActivated = false;
+//
+//   const transformMaskClass = "mask--fullsize";
+//   mask.addEventListener("click", () => {
+//
+//     if (!mask.classList.contains(transformMaskClass)) {
+//       mask.classList.add(transformMaskClass);
+//     } else {
+//       mask.classList.remove(transformMaskClass);
+//     }
+//   });
+//
+//   // const activationButton = document.querySelector(".mask__control");
+//   // activationButton.addEventListener("click", () => {
+//   //   mask.setAttribute("src", "data/" + data[x - config.xTicks[0]]);
+//   // });
+//   return scrollGroup;
+// };
 
 
 // const createSlideShow = (scrollGroup, data) => {

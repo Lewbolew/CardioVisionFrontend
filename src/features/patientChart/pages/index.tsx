@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {RouteComponentProps} from "react-router-dom";
-import styled from '@emotion/styled';
 import {app} from '../src/index';
 
 

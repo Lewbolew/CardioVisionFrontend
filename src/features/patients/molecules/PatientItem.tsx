@@ -12,7 +12,7 @@ type Props = {
 const PatientItem = (props: Props) => {
     const {patient} = props;
     return (
-        <StyledContainer onClick={() => {props.history.push('/patient')}}>
+        <StyledContainer onClick={() => {props.history.push(`/patient/${patient.mrn}`)}}>
             <P><PriorityCircle patientPriority={patient.priority} size={24} /></P>
             <P className='patientId'>{patient.mrn}</P>
             <P>{patient.stenosisScore}</P>

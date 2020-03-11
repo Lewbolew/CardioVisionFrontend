@@ -4,7 +4,7 @@ import { legendColor } from "d3-svg-legend";
 import {linesColors} from "./config";
 
 export const plotLines = (plotContainer, data) => {
-  const linesData = data.prediction_probas
+  data.prediction_probas
     .map((
       probArray // convert data to {x: x0, y: y0} format
     ) => probArray.map((el, j) => ({ x: data.mpr_index[j], y: el })))

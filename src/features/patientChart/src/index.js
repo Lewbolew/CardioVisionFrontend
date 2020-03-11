@@ -1,4 +1,3 @@
-import * as d3 from "d3";
 import { plot } from "./plotter";
 import { preprocessData } from "./preprocessing";
 import "../styles/common.css";

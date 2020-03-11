@@ -44,8 +44,6 @@ class Patients extends Component<Props & RouteComponentProps, State> {
 
     componentDidMount(): void {
         let patientsList = temporaryPatients.sort(this.compare);
-        let d = new Date();
-        console.log(d, formatTime(d));
         this.setState({
             patientsList,
         })

@@ -47,13 +47,11 @@ const findOption = (value: number): {label: string, value: number} => {
     priorityOptions.forEach(element => {
         if(element.value === value) {
             res = element;
-            console.log("priority Score");
         }
     });
     stenosisScoreOptions.forEach(element => {
         if(element.value === value){
             res = element;
-            console.log("in stenosis Score");
         }
     });
     return res;

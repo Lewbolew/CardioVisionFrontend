@@ -5,6 +5,9 @@ import styled from '@emotion/styled';
 import BasicButton from "../../../ui/components/atoms/BasicButton";
 import {Patient} from "../interfaces";
 import PatientTableContainer from "../components/molecules/PatientTableContainer";
+import Wrapper from "../../../ui/components/atoms/Wrapper";
+import StyledImg from "../../../ui/components/atoms/StyledImg";
+import Heading from "../../../ui/components/atoms/Heading";
 
 
 type RouteParams = {
@@ -66,33 +69,16 @@ class Patients extends Component<Props & RouteComponentProps, State> {
     }
 }
 
-const Heading = styled.h1`
-    color: #333;
-    text-transform: uppercase;
-`;
-
 const SubHeading = styled.h2`
     color: #333;
     text-transform: uppercase;
     font-size: 1.5em;
 `;
 
-const Wrapper = styled.div`
-    margin-top: 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-`;
 const TopleftContainer = styled.div`
     position: absolute;
     top: 12px;
     left: 12px;
-`;
-
-const StyledImg = styled.img`
-    width: 60px;
-    cursor: pointer;
 `;
 
 export default Patients;

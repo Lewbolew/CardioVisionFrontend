@@ -8,6 +8,8 @@ import Patient from "./features/patient/pages";
 import PatientChart from "./features/patientChart/pages/index";
 import './App.css';
 import NotFound from "./NotFound";
+import EmailForm from "./features/passwordReset/pages/emailForm";
+import PasswordConfirm from "./features/passwordReset/pages/passwordConfirm";
 
 
 function App() {
@@ -21,6 +23,8 @@ function App() {
                 <Route path="/patients" exact component={Patients} />
                 <Route path="/patient/:id" exact component={Patient} />
                 <Route path="/patient-chart" exact component={PatientChart} />
+                <Route path="/password-reset" exact component={EmailForm} />
+                <Route path="/password-confirm" exact component={PasswordConfirm} />
                 <Route path="*" exact component={NotFound} />
             </Switch>
         </BrowserRouter>

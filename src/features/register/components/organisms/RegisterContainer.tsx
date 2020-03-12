@@ -1,10 +1,11 @@
 import * as React from 'react';
 // @ts-ignore
-import styled from '@emotion/styled';
 import logo from '../../../../ui/images/logo-short.svg'
 import { RouteComponentProps } from "react-router-dom";
 import RegisterForm from "../molecules/RegisterForm";
 import {RegisterErrors} from "../../interfaces";
+import StyledImg from "../../../../ui/components/atoms/StyledImg";
+import Wrapper from "../../../../ui/components/atoms/Wrapper";
 
 type Props = {
     email: string;
@@ -31,7 +32,7 @@ function RegisterContainer(props: Props & RouteComponentProps) {
         username
     } = props;
     return (
-        <StyledContainer>
+        <Wrapper>
             <StyledImg src={logo} alt="logo" onClick={() => {props.history.push("/")}} />
             <RegisterForm
                 email={email}
@@ -45,22 +46,8 @@ function RegisterContainer(props: Props & RouteComponentProps) {
                 handleRegister={handleRegister}
                 togglePolicy={togglePolicy}
             />
-        </StyledContainer>
+        </Wrapper>
     );
 }
-
-const StyledContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    margin-top: 40px;
-`;
-
-const StyledImg = styled.img`
-    cursor: pointer;
-    width: 60px;
-`;
 
 export default RegisterContainer;

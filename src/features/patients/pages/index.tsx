@@ -7,6 +7,9 @@ import styled from '@emotion/styled';
 import {formatTime} from "../helpers";
 import BasicButton from "../../../ui/components/atoms/BasicButton";
 import AddPatientModal from "../molecules/AddPatientModal";
+import Wrapper from "../../../ui/components/atoms/Wrapper";
+import StyledImg from "../../../ui/components/atoms/StyledImg";
+import Heading from "../../../ui/components/atoms/Heading";
 
 type Props = {
     test: boolean;
@@ -125,26 +128,8 @@ class Patients extends Component<Props & RouteComponentProps, State> {
     }
 }
 
-const Heading = styled.h1`
-    color: #333;
-    text-transform: uppercase;
-`;
-
-const Wrapper = styled.div`
-    margin-top: 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-`;
-
 const ButtonWrapper = styled.div`
     width: 220px;
-`;
-
-const StyledImg = styled.img`
-    width: 60px;
-    cursor: pointer;
 `;
 
 export default Patients;

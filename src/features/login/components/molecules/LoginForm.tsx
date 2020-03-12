@@ -45,7 +45,7 @@ const LoginForm = (props: Props) => {
             <WarningMessage style={{marginLeft: '100px'}} text={errors?.password} />
             <FlexWrapper>
                 <StyledAnchor onClick={() => {props.history.push('/register')}}>Create an account</StyledAnchor>
-                <A>Forgot password?</A>
+                <A onClick={() => {props.history.push('/password-reset')}}>Forgot password?</A>
             </FlexWrapper>
             <PolicyWrapper>
                 <input type="checkbox" checked={checkedPolicy} onChange={togglePolicy}/>

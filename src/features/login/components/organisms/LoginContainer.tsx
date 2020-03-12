@@ -1,10 +1,10 @@
 import * as React from 'react';
-// @ts-ignore
-import styled from '@emotion/styled';
 import logo from '../../../../ui/images/logo-short.svg'
 import LoginForm from "../molecules/LoginForm";
 import { RouteComponentProps } from "react-router-dom";
 import {LoginErrors} from "../../interfaces";
+import Wrapper from "../../../../ui/components/atoms/Wrapper";
+import StyledImg from "../../../../ui/components/atoms/StyledImg";
 
 type Props = {
     email: string;
@@ -19,7 +19,7 @@ type Props = {
 function LoginContainer(props: Props & RouteComponentProps) {
     const {email, password, checkedPolicy, handleInputChange,togglePolicy,handleLogIn,errors} = props;
     return (
-        <StyledContainer>
+        <Wrapper>
             <StyledImg src={logo} alt="logo" onClick={() => {props.history.push("/")}} />
             <LoginForm
                 email={email}
@@ -31,22 +31,8 @@ function LoginContainer(props: Props & RouteComponentProps) {
                 handleLogIn={handleLogIn}
                 togglePolicy={togglePolicy}
             />
-        </StyledContainer>
+        </Wrapper>
     );
 }
-
-const StyledContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    margin-top: 40px;
-`;
-
-const StyledImg = styled.img`
-    cursor: pointer;
-    width: 60px;
-`;
 
 export default LoginContainer;

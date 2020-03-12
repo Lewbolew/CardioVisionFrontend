@@ -14,11 +14,12 @@ type Props = {
     errors?: LoginErrors;
     handleLogIn: () => void;
     togglePolicy: () => void;
+    openTermsOfService: () => void;
     handleInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 const LoginForm = (props: Props) => {
-    const {email, handleInputChange, password, checkedPolicy, togglePolicy, handleLogIn,errors} = props;
+    const {email, handleInputChange, password, checkedPolicy, togglePolicy, handleLogIn,errors,openTermsOfService} = props;
     return (
         <StyledContainer>
             <Heading>Login</Heading>
@@ -50,7 +51,7 @@ const LoginForm = (props: Props) => {
             <PolicyWrapper>
                 <input type="checkbox" checked={checkedPolicy} onChange={togglePolicy}/>
                 <span>I accept the </span>
-                <StyledAnchor href="/"> Terms of Service </StyledAnchor>
+                <StyledAnchor onClick={openTermsOfService}> Terms of Service </StyledAnchor>
                 <span>GDPR complaint</span>
             </PolicyWrapper>
             <BasicButton

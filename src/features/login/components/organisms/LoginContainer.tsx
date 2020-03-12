@@ -12,12 +12,13 @@ type Props = {
     errors?: LoginErrors;
     checkedPolicy: boolean;
     togglePolicy: () => void;
+    openTermsOfService: () => void;
     handleLogIn: () => void;
     handleInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 function LoginContainer(props: Props & RouteComponentProps) {
-    const {email, password, checkedPolicy, handleInputChange,togglePolicy,handleLogIn,errors} = props;
+    const {email, password, checkedPolicy, handleInputChange,togglePolicy,handleLogIn,errors,openTermsOfService} = props;
     return (
         <Wrapper>
             <StyledImg src={logo} alt="logo" onClick={() => {props.history.push("/")}} />
@@ -29,6 +30,7 @@ function LoginContainer(props: Props & RouteComponentProps) {
                 checkedPolicy={checkedPolicy}
                 handleInputChange={handleInputChange}
                 handleLogIn={handleLogIn}
+                openTermsOfService={openTermsOfService}
                 togglePolicy={togglePolicy}
             />
         </Wrapper>

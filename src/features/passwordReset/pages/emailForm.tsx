@@ -8,6 +8,7 @@ import StyledImg from "../../../ui/components/atoms/StyledImg";
 import Heading from "../../../ui/components/atoms/Heading";
 import InputBox from "../../../ui/components/atoms/InputBox";
 import WarningMessage from "../../../ui/components/atoms/WarningMessage";
+import {Spinner} from "../../../ui/components/atoms/Spinner";
 
 type State = {
     email: string;
@@ -33,34 +34,43 @@ class EmailForm extends Component<RouteComponentProps, State> {
     };
 
     handleEmailSent = async () => {
+        this.setState({
+            spinner: true,
+        });
         if(this.state.email.length === 0) {
             this.setState({
                 emailError: 'This field is required'
             });
             return;
         }
+        this.setState({
+            spinner: false,
+        });
         this.props.history.push('/password-confirm');
     };
 
     render() {
 
         return (
-            <Wrapper>
-                <StyledImg src={logo} alt="logo" onClick={() => {this.props.history.push('/')}}/>
-                <Heading>Password reset</Heading>
-                <InputWrapper>
-                    <InputBox
-                        name='password-reset'
-                        placeholder='Email used to create the account'
-                        value={this.state.email}
-                        onChange={this.handleEmailChange}
-                    />
-                    <WarningMessage text={this.state.emailError} />
-                </InputWrapper>
-                <ButtonWrapper>
-                    <BasicButton title='Reset' onClick={this.handleEmailSent} />
-                </ButtonWrapper>
-            </Wrapper>
+            <>
+                <Wrapper>
+                    <StyledImg src={logo} alt="logo" onClick={() => {this.props.history.push('/')}}/>
+                    <Heading>Password reset</Heading>
+                    <InputWrapper>
+                        <InputBox
+                            name='password-reset'
+                            placeholder='Email used to create the account'
+                            value={this.state.email}
+                            onChange={this.handleEmailChange}
+                        />
+                        <WarningMessage text={this.state.emailError} />
+                    </InputWrapper>
+                    <ButtonWrapper>
+                        <BasicButton title='Reset' onClick={this.handleEmailSent} />
+                    </ButtonWrapper>
+                </Wrapper>
+                <Spinner loading={this.state.spinner} />
+            </>
         );
     }
 }

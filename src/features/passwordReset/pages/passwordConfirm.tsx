@@ -8,6 +8,7 @@ import StyledImg from "../../../ui/components/atoms/StyledImg";
 import Heading from "../../../ui/components/atoms/Heading";
 import InputBox from "../../../ui/components/atoms/InputBox";
 import WarningMessage from "../../../ui/components/atoms/WarningMessage";
+import {Spinner} from "../../../ui/components/atoms/Spinner";
 
 type State = {
     confirm: string;
@@ -33,32 +34,41 @@ class PasswordConfirm extends Component<RouteComponentProps, State> {
     };
 
     handleConfirmPassword = async () => {
+        this.setState({
+            spinner: true,
+        });
         if(this.state.confirm.length === 0) {
             this.setState({
                 confirmError: 'This field is required'
             })
         }
+        this.setState({
+            spinner: false,
+        });
     };
 
     render() {
 
         return (
-            <Wrapper>
-                <StyledImg src={logo} alt="logo" onClick={() => {this.props.history.push('/')}}/>
-                <Heading>Password Confirm</Heading>
-                <InputWrapper>
-                    <InputBox
-                        name='password-Confirm'
-                        placeholder='Code sent to your email'
-                        value={this.state.confirm}
-                        onChange={this.handleConfirmChange}
-                    />
-                    <WarningMessage text={this.state.confirmError} />
-                </InputWrapper>
-                <ButtonWrapper>
-                    <BasicButton title='Confirm' onClick={this.handleConfirmPassword} />
-                </ButtonWrapper>
-            </Wrapper>
+            <>
+                <Wrapper>
+                    <StyledImg src={logo} alt="logo" onClick={() => {this.props.history.push('/')}}/>
+                    <Heading>Password Confirm</Heading>
+                    <InputWrapper>
+                        <InputBox
+                            name='password-Confirm'
+                            placeholder='Code sent to your email'
+                            value={this.state.confirm}
+                            onChange={this.handleConfirmChange}
+                        />
+                        <WarningMessage text={this.state.confirmError} />
+                    </InputWrapper>
+                    <ButtonWrapper>
+                        <BasicButton title='Confirm' onClick={this.handleConfirmPassword} />
+                    </ButtonWrapper>
+                </Wrapper>
+                <Spinner loading={this.state.spinner} />
+            </>
         );
     }
 }
